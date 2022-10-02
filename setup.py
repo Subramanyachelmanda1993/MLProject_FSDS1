@@ -3,7 +3,7 @@ from typing import List
 
 #Declaring variables for setup functions
 PROJECT_NAME = "housing_price_predictor"
-VERSION = "0.0.10"
+VERSION = "0.0.11"
 AUTHOR = "Subramanya Chelmanda"
 DESCRIPTION = "This is the first Machine Learning"
 REQUIREMENT_FILE_NAME = "requirements.txt"
@@ -18,7 +18,7 @@ def get_requirements_list()->List[str]:
     from the requirements.txt file.
     """
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
-        return requirement_file.readlines()
+        return requirement_file.readlines().remove('-e .')
 
 setup(
 name = PROJECT_NAME,
