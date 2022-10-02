@@ -19,7 +19,10 @@ def get_requirements_list()->List[str]:
     from the requirements.txt file.
     """
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
-        requirement_list = requirement_file.readlines()
+        requirement_list = [lib_name.replace("\n","") for lib_name in requirement_file.readlines()]
+        print(requirement_list)
+        if "-e ." in requirement_list:
+            requirement_list.remove('-e .')
         return requirement_list
 
 setup(
