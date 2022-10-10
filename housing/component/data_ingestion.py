@@ -16,19 +16,21 @@ class DataIngestion:
         try:
             logging.info(f"{'>>'*20}Data Ingestion log started.{'<<'*20} ")
             self.data_ingestion_config = data_ingestion_config
-
         except Exception as e:
             raise HousingException(e,sys)
 
-    def download_housing_data(self,) -> str:
+    def download_housing_data(self) -> str:
         try:
             #extracting remote url to download dataset
             download_url = self.data_ingestion_config.dataset_download_url
 
             #folder location to download file
             tgz_download_dir = self.data_ingestion_config.tgz_download_dir
+
+            if os.path.exists(tgz_download_dir):
+                os.remove(tgz_download_dir)
             
-            os.makedirs(tgz_download_dir,exist_ok=True)
+            os.makedirs(tgz_download_dir, exist_ok=True)
 
             housing_file_name = os.path.basename(download_url)
 
@@ -131,4 +133,4 @@ class DataIngestion:
 
 
     def __del__(self):
-        logging.info(f"{'>>'*20}Data Ingestion log completed.{'<<'*20} \n\n")
+        logging.info(f"{'='*20}Data Ingestion log completed.{'='*20} \n\n")
