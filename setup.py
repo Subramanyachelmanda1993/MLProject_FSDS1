@@ -4,7 +4,7 @@ from typing import List
 
 #Declaring variables for setup functions
 PROJECT_NAME = "housing_price_predictor"
-VERSION = "0.0.13"
+VERSION = "0.0.14"
 AUTHOR = "Subramanya Chelmanda"
 DESCRIPTION = "This is the first Machine Learning"
 REQUIREMENT_FILE_NAME = "requirements.txt"
