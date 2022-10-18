@@ -6,4 +6,4 @@ numpy
 -e .
 PyYAML
 evidently
-
+dill

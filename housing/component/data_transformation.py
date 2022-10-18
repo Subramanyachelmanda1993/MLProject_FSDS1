@@ -1,8 +1,8 @@
 from housing.exception import HousingException
 from housing.logger import logging
 from housing.entity.config_entity import DataTransformationConfig 
-from housing.entity.artifact_entity import DataIngestionArtifact,\
-DataValidationArtifact,DataTransformationArtifact
+from housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact,\
+DataTransformationArtifact
 import sys,os
 import numpy as np
 
