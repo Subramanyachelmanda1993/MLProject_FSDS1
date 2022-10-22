@@ -1,5 +1,5 @@
-from housing.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig,   \
-ModelTrainerConfig, ModelEvaluationConfig, ModelPusherConfig, TrainingPipelineConfig
+from housing.entity.config_entity import DataIngestionConfig, DataTransformationConfig,DataValidationConfig,   \
+ModelTrainerConfig,ModelEvaluationConfig,ModelPusherConfig,TrainingPipelineConfig
 from housing.util.util import read_yaml_file
 from housing.logger import logging
 import sys,os
@@ -111,9 +111,9 @@ class Configuartion:
                 self.time_stamp
             )
 
-            data_transformation_config_info = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
+            data_transformation_config_info=self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
 
-            add_bedroom_per_room = data_transformation_config_info[DATA_TRANSFORMATION_ADD_BEDROOM_PER_ROOM_KEY]
+            add_bedroom_per_room=data_transformation_config_info[DATA_TRANSFORMATION_ADD_BEDROOM_PER_ROOM_KEY]
 
 
             preprocessed_object_file_path = os.path.join(
@@ -199,19 +199,19 @@ class Configuartion:
             raise HousingException(e,sys) from e
 
 
-    # def get_model_pusher_config(self) -> ModelPusherConfig:
-    #     try:
-    #         time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
-    #         model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
-    #         export_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
-    #                                        time_stamp)
+    def get_model_pusher_config(self) -> ModelPusherConfig:
+        try:
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            export_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                                           time_stamp)
 
-    #         model_pusher_config = ModelPusherConfig(export_dir_path=export_dir_path)
-    #         logging.info(f"Model pusher config {model_pusher_config}")
-    #         return model_pusher_config
+            model_pusher_config = ModelPusherConfig(export_dir_path=export_dir_path)
+            logging.info(f"Model pusher config {model_pusher_config}")
+            return model_pusher_config
 
-    #     except Exception as e:
-    #         raise HousingException(e,sys) from e
+        except Exception as e:
+            raise HousingException(e,sys) from e
 
     def get_training_pipeline_config(self) ->TrainingPipelineConfig:
         try:
