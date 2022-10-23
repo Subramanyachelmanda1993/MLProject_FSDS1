@@ -1,6 +1,4 @@
-import os
-import sys
-
+import os,sys
 from housing.exception import HousingException
 from housing.util.util import load_object
 
@@ -57,7 +55,7 @@ class HousingData:
                 "ocean_proximity": [self.ocean_proximity]}
             return input_data
         except Exception as e:
-            raise HousingException(e, sys)
+            raise HousingException(e, sys) from e
 
 
 class HousingPredictor:
@@ -85,4 +83,5 @@ class HousingPredictor:
             median_house_value = model.predict(X)
             return median_house_value
         except Exception as e:
-            raise HousingException(e, sys) from 
+            raise HousingException(e, sys) from e
+        
