@@ -5,7 +5,7 @@ from housing.logger import logging
 from housing.entity.artifact_entity import DataIngestionArtifact
 import tarfile
 import numpy as np
-from six.moves import urllib
+import urllib
 import pandas as pd
 from sklearn.model_selection import StratifiedShuffleSplit
 
