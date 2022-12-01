@@ -207,6 +207,7 @@ class Pipeline(Thread):
                 limit = -1 * int(limit)
                 return df[limit:].drop(columns=["experiment_file_path", "initialization_timestamp"], axis=1)
             else:
-                return pd.DataFrame()
+                return pd.DataFrame(df)
         except Exception as e:
             raise HousingException(e, sys) from e
+        
